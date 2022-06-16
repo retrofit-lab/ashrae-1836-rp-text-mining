@@ -10,6 +10,7 @@ This repository contains the data and code for the paper "What we talk about whe
     - [1836-RP main list of EEMs](#1836-rp-main-list-of-eems)  
 - [Analysis](#analysis)  
     - [Setup](#setup)  
+    - [Data cleaning and pre-processing](#data-cleaning-and-pre-processing)  
     - [Results](#results)  
 
 ## Citation

@@ -20,7 +20,7 @@ TEXT TK
 
 ## Repository Structure
 The repository is divided into three directories:
-- `/data/`: Dataset created as part of 1836-RP and used in the text mining analysis
+- `/data/`: Dataset of EEMs created and analyzed as part of 1836-RP
 - `/analysis/`: R script for text mining analysis
 - `/results/`: Output produced by R script
 
@@ -62,10 +62,7 @@ The file contains five variables:
 -	`eem_name`: The name of the measure as written in the original source document.
 
 ## Analysis
-There are two analysis files associated with this project.  
-
-### Introduction
-The R script `text-mining.R` replicates the analysis from the paper "What we talk about when we talk about EEMs: Using text mining and topic modeling to understand building energy efficiency measures (1836-RP)."
+The R script `text-mining.R` replicates the analysis from the paper.
 
 ### Setup
 It is recommended that you update to the latest versions of both R and RStudio (if using RStudio) prior to running this script. 

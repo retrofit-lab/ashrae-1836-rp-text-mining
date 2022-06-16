@@ -296,7 +296,7 @@ word_doc_pairs <- lemma_all_docs %>%
 ```
 A plot of the top 20 words and their frquency of occurrence:
 
-![Frequency of top 20 words by document.](/results/text-mining/top-20-words.png)
+![Frequency of top 20 words by document.](/results/top-20-words.png)
 
 #### Top 20 bigrams
 
@@ -351,7 +351,7 @@ bigram_doc_pairs <- bigram_table %>%
 ```
 A plot of the top 20 bigrams and their frquency of occurrence:
 
-![Frequency of top 20 bigrams by document.](/results/text-mining/top-20-bigrams.png)
+![Frequency of top 20 bigrams by document.](/results/top-20-bigrams.png)
 
 #### UpSet plot
 
@@ -380,7 +380,7 @@ upset(fromList(listInput),
 
 The set intersectons are plotted as an UpSet plot: 
 
-![UpSet plot.](/results/text-mining/upset-plot.png)
+![UpSet plot.](/results/upset-plot.png)
 
 #### Part of Speech (POS) tagging
 
@@ -435,7 +435,7 @@ for (i in c(2:12)) {
 
 The perplexity for each potential model is plotted:  
 
-![Perplexity analysis.](/results/text-mining/perplexity.png)
+![Perplexity analysis.](/results/perplexity.png)
 
 #### Topic modeling: k=6 topics 
 
@@ -478,7 +478,7 @@ The beta matrix shows the distribution of words within topics.  For Topics 1-3:
 
 The gamma matrix shows the distibution of topics across documents:
 
-![Topic model gamma distribution.](/results/text-mining/topic-model-gamma.png)
+![Topic model gamma distribution.](/results/topic-model-gamma.png)
 
 
 #### Cosine similarity
@@ -492,4 +492,4 @@ similarity <- round(100*sim2(all_docs_matrix, method = "cosine"), 0)
 
 The cosine similarity can be shown in matrix format:
 
-![Cosine similarity matrix.](/results/text-mining/cosine-similarity.png)
+![Cosine similarity matrix.](/results/cosine-similarity.png)

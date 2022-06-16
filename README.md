@@ -9,8 +9,8 @@ This repository contains the data and code for the paper "What we talk about whe
 - [Data](#data)  
     - [1836-RP main list of EEMs](#1836-rp-main-list-of-eems)  
 - [Analysis](#analysis)  
-    - [Text mining and topic modeling](#text-mining-and-topic-modeling)  
-    - [Categorizing EEMs using the 1836-RP standardized system](#categorizing-eems-using-the-1836-rp-standardized-system)  
+    - [Setup](#setup)  
+    - [Results](#results)  
 
 ## Citation
 TEXT TK
@@ -218,7 +218,7 @@ The first 10 lines of the EEM token list now read:
 10      3 1651RP   Optimal Daylighting Control                 control    
 ```
 
-### Analysis and Results
+### Results
 
 #### Summary statistics
 

@@ -90,7 +90,7 @@ library(text2vec)
 library(corrplot)
 ```
 
-Third, install the packages required for the part of speech (POS) tagging.  Note that this process may be time-intensive and is not required to run the majority of this script.  In addition, the POS tagging output is already provided in the `/results/text-mining/` directory.  The POS tagging analysis requires the installation of the `RDRPOSTagger` package via GitHub.  In order to install this package, you first need to do the following: 
+Third, install the packages required for the part of speech (POS) tagging.  Note that this process may be time-intensive and is not required to run the majority of this script.  In addition, the POS tagging output is already provided in the `/results/` directory.  The POS tagging analysis requires the installation of the `RDRPOSTagger` package via GitHub.  In order to install this package, you first need to do the following: 
 
 1. Install [RTools](https://cran.r-project.org/bin/windows/Rtools/)
 2. Install [Java](https://www.oracle.com/java/)

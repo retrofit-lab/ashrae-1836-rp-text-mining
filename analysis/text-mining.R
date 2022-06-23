@@ -56,7 +56,7 @@ unique_stopwords <- removed_stopwords %>%
   unique() %>%
   arrange(word)
   
-# Display list of unique stopwords getting removed in markdown format
+# Display list of unique stop words getting removed in markdown format
 knitr::kable(unique_stopwords %>% 
   dplyr::summarise(`stop words` = paste(word, collapse = ", "))) 
  

@@ -295,7 +295,7 @@ train_ind <- sample(nrow(all_docs_matrix), size = sample_size)
 train <- all_docs_matrix[train_ind, ]
 test <- all_docs_matrix[-train_ind, ]
 
-# Perplexity analysis for k = 2 to 20. Selected k=6.
+# Perplexity analysis for k = 2 to 12. Selected k=6.
 values <- c()
 for (i in c(2:12)) {
   lda_model <- LDA(train, k = i, method = "Gibbs", control = list(seed = 42))

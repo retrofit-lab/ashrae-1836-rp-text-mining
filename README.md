@@ -143,16 +143,16 @@ This produces a list of each token in the main list, by EEM, by document.  The f
 
 #### Remove stop words
 
-After tokenization, stopwords are removed from the list of tokens using the `stopwords` package.  >> WHAT IS source=SMART?   
+After tokenization, stopwords are removed from the list of tokens using the `stopwords` package.  
 
 ```
 # Remove stop words from EEMs
 minus_stopwords_all_docs <- token_all_docs %>% 
-  filter(!(word %in% stopwords::stopwords(source = "smart")))
+  filter(!(word %in% stopwords::stopwords(source = "snowball")))
 
 # List of stop words removed from each EEM
 removed_stopwords <- token_all_docs %>% 
-  filter((word %in% stopwords::stopwords(source = "smart")))
+  filter((word %in% stopwords::stopwords(source = "snowball")))
 
 # List of unique stop words getting removed 
 unique_stopwords <- removed_stopwords %>% 

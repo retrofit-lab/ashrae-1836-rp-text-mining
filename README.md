@@ -17,7 +17,7 @@ This repository contains the data and code for the paper "What we talk about whe
 TEXT TK
 
 ## Related Publications
-TEXT TK
+- Webb, Amanda, and Apoorv Khanuja. 2022. Developing a Standardized Categorization System for Energy Efficiency Measures. Final Report RP-1836. ASHRAE.
 
 ## Repository Structure
 The repository is divided into three directories:

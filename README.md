@@ -32,7 +32,7 @@ Energy Efficiency Measures (EEMs) play a central role throughout the building en
 There is one dataset associated with this project. 
 
 ### 1836-RP main list of EEMs
-The file [eem-list-main.csv](data/eem-list-main.csv) contains the complete list of 3,480 EEMs assembled and analyzed as part of 1836-RP.  This data file is used for the text mining analysis in [text-mining.Rmd](analysis/text-mining.Rmd).  The EEMs were collected from 16 different source documents during the 1836-RP literature review from September 2019 through July 2020.  An initial list of suggested sources was provided by the members of the 1836-RP Project Advisory Board, and additional documents were added through the authors’ literature review.  In order for a source to be included in the review, it needed to contain a list of EEMs.
+The file [eem-list-main.csv](data/eem-list-main.csv) contains the complete list of 3,490 EEMs assembled and analyzed as part of 1836-RP.  This data file is used for the text mining analysis in [text-mining.R](analysis/text-mining.R).  The EEMs were collected from 16 different source documents during the 1836-RP literature review from September 2019 through July 2020.  An initial list of suggested sources was provided by the members of the 1836-RP Project Advisory Board, and additional documents were added through the authors’ literature review.  In order for a source to be included in the review, it needed to contain a list of EEMs.
 
 The file contains five variables:
 
@@ -164,7 +164,7 @@ unique_stopwords <- removed_stopwords %>%
 
 |stop words |
 |:----------|
-|a, about, above, across, after, again, against, all, allow, allows, almost, alone, along, already, also, among, an, and, another, any, appropriate, are, around, as, associated, at, available, away, be, been, before, behind, being, below, best, better, between, both, but, by, c, can, cannot, cause, causes, changes, co, consider, containing, corresponding, different, do, does, doesn't, done, down, during, e, each, eg, either, etc, every, example, f, first, following, for, four, from, further, get, getting, has, have, having, help, here, hi, however, i, if, in, indicate, indicated, indicates, instead, into, is, it, its, k, keep, known, later, least, less, like, likely, m, may, mean, more, most, must, name, near, nearly, necessary, need, needs, never, new, next, no, non, normally, not, o, of, off, often, old, on, once, one, ones, only, or, other, others, out, outside, over, overall, own, p, particularly, per, plus, possible, provides, q, r, rather, re, right, s, same, saw, see, self, sensible, several, shall, should, since, so, some, soon, specified, sub, such, t, than, that, the, their, them, then, there, therefore, these, they, they're, this, those, three, through, to, together, too, toward, two, u, under, until, up, upon, use, used, uses, using, v, value, via, vs, w, was, way, well, when, whenever, where, wherever, whether, which, while, who, whole, will, with, within, without, would |
+|a, about, above, after, again, against, all, an, and, any, are, as, at, be, been, before, being, below, between, both, but, by, cannot, do, does, doesn't, down, during, each, for, from, further, has, have, having, here, i, if, in, into, is, it, its, more, most, no, not, of, off, on, once, only, or, other, out, over, own, same, should, so, some, such, than, that, the, their, them, then, there, these, they, they're, this, those, through, to, too, under, until, up, was, when, where, which, while, who, will, with, would |
 
 #### Remove numeric tokens
 
@@ -190,7 +190,7 @@ unique_num_stopwords <- numeric_tokens %>%
 
 |numeric stop words |
 |:------------------|
-|0.18, 0.2, 0.25, 0.29, 0.4cfm, 0.67w, 0.6w, 0.7w, 0.82, 0.93, 0.95, 020, 1, 1.5, 1.6, 1.75, 10, 10.6, 100, 11, 11.0, 11.2, 113, 12, 12.5, 120, 125, 14, 140, 15, 180, 189.1, 2, 20, 2007, 2010, 2011, 25, 27, 2700, 2700k, 3, 3.2, 3.3, 3.7, 30, 300, 3000, 3000k, 350, 3500, 3500k, 4, 40, 4000, 4000k, 45, 49, 5, 5.3.3, 50, 50w, 55, 59, 6.27, 60, 62.1, 65, 7, 70, 746, 8, 80, 81, 83, 9.4.1, 9.5, 90.1, 92, 95 |
+|0.18, 0.2, 0.25, 0.29, 0.4cfm, 0.67w, 0.6w, 0.7w, 0.82, 0.93, 0.95, 020, 1, 1.5, 1.6, 1.75, 10, 10.6, 100, 11, 11.0, 11.2, 113, 12, 12.5, 120, 125, 14, 140, 15, 180, 189.1, 2, 20, 2007, 2010, 2011, 25, 27, 2700, 2700k, 3, 3.2, 3.3, 3.7, 30, 300, 3000, 3000k, 350, 3500, 3500k, 4, 40, 4000, 4000k, 42, 45, 49, 5, 5.3.3, 50, 50w, 55, 59, 6.27, 60, 62.1, 65, 7, 70, 746, 8, 80, 81, 8258, 83, 9.4.1, 9.5, 90.1, 92, 95 |
 
 #### Lemmatization
 
@@ -226,10 +226,18 @@ The first 10 lines of the EEM token list now read:
 The number of EEMs and duplicate EEMs per document are computed, and the tokenized data is used to determine the minimum, median, and maximum EEM word lengths for each document. 
 
 ```
+# EEMs per doc stats
+
 # Total number of EEMs per doc
 eems_per_doc <- all_docs %>% 
   count(document) %>% 
   rename(Total = n)
+
+# Total number of EEMs across all docs
+total_eems <- nrow(all_docs)
+
+# Convert EEMs to lower case since unique() is case sensitive
+all_docs$eem_name <- tolower(all_docs$eem_name)
 
 # Number of unique EEMs per doc
 unique_eems_per_doc <- all_docs %>% 
@@ -238,15 +246,34 @@ unique_eems_per_doc <- all_docs %>%
   count(document) %>% 
   rename(Uniques = n)
 
+# Number of unique EEMs across all docs
+total_unique_eems <- all_docs %>% 
+  select(eem_name) %>% 
+  unique() %>% 
+  nrow()
+
 # Number of duplicate EEMs per doc
 eem_counts <- eems_per_doc %>% 
   full_join(unique_eems_per_doc, by = "document") %>% 
   mutate(Duplicates = Total - Uniques) %>% 
   select(-Uniques)
 
+# Number of duplicate EEMs across all docs
+total_duplicates <- total_eems - total_unique_eems
+
 # Words per EEM stats
+
+# Words per EEM by doc
 words_per_eem <- token_all_docs %>% 
   group_by(document) %>% 
+  count(eem_id) %>% 
+  summarise(minimum = min(n),
+            median = round(median(n),1),
+            average = round(mean(n),1),
+            maximum = max(n))
+
+# Words per EEM across all documents
+words_per_eem_corpus <- token_all_docs %>% 
   count(eem_id) %>% 
   summarise(minimum = min(n),
             median = round(median(n),1),
@@ -257,28 +284,38 @@ words_per_eem <- token_all_docs %>%
 summary_stats <- eem_counts %>% 
   left_join(words_per_eem, by = "document")
 
+# Include the totals row
+summary_stats_totals <- tribble(
+	~document, ~Total, ~Duplicates, ~minimum, ~median, ~average, ~maximum,
+    "TOTAL", total_eems, total_duplicates, words_per_eem_corpus$minimum, 
+	words_per_eem_corpus$median, words_per_eem_corpus$average, words_per_eem_corpus$maximum)
+
+# Bind total and per document stats
+summary_stats <- summary_stats %>% bind_rows(summary_stats_totals)
+
 ```
 
 Summary statistics for each document:  
 
-|Document | Total| Duplicates| Minimum| Median| Average| Maximum|
+|document | Total| Duplicates| minimum| median| average| maximum|
 |:--------|-----:|----------:|-------:|------:|-------:|-------:|
-|1651RP   |   398|          0|       1|      5|     5.2|      17|
-|ATT      |   223|         81|       1|      4|     4.2|      14|
-|BCL      |   302|          0|       1|      3|     3.9|      14|
-|BEQ      |   295|          1|       2|     12|    11.9|      41|
-|BSYNC    |   222|         81|       1|      4|     4.1|      14|
-|CBES     |   102|          0|       2|      7|     7.5|      19|
-|DOTY     |    69|          0|       1|      4|     4.8|      11|
-|IEA11    |   232|          0|       2|      5|     5.3|      13|
-|IEA46    |   419|          4|       1|     12|    16.6|     109|
-|ILTRM    |   195|          5|       2|      4|     4.5|      12|
-|NYTRM    |   110|         20|       1|      4|     4.1|      13|
-|REMDB    |   129|          3|       1|      3|     4.3|      14|
-|STD100   |   236|          1|       2|     15|    17.6|     103|
-|THUM     |    52|          0|       2|      6|     5.7|      15|
-|WSU      |   130|          0|       2|      6|     6.5|      17|
-|WULF     |   366|         13|       2|     11|    12.6|      41|
+|1651RP   |   398|          0|       1|    5.0|     5.2|      17|
+|ATT      |   223|         82|       1|    4.0|     4.2|      14|
+|BCL      |   302|          0|       1|    3.0|     3.9|      14|
+|BEQ      |   295|          1|       2|   12.0|    11.9|      41|
+|BSYNC    |   223|         82|       1|    4.0|     4.2|      14|
+|CBES     |   102|          0|       2|    7.0|     7.5|      19|
+|DOTY     |    69|          0|       1|    4.0|     4.8|      11|
+|IEA11    |   232|          0|       2|    5.0|     5.3|      13|
+|IEA46    |   420|          4|       1|   12.5|    16.7|     109|
+|ILTRM    |   193|          4|       2|    4.0|     4.5|      12|
+|NYTRM    |   108|         20|       1|    4.0|     4.2|      13|
+|REMDB    |   136|          3|       1|    4.0|     4.5|      14|
+|STD100   |   241|          1|       2|   15.0|    18.3|     103|
+|THUM     |    52|          0|       2|    6.0|     5.8|      15|
+|WSU      |   130|          0|       2|    6.0|     6.5|      17|
+|WULF     |   366|         13|       2|   11.0|    12.6|      41|
+|TOTAL    |  3490|        511|       1|    6.0|     8.6|     109|
 
 #### Top 20 words
 
@@ -425,7 +462,7 @@ train_ind <- sample(nrow(all_docs_matrix), size = sample_size)
 train <- all_docs_matrix[train_ind, ]
 test <- all_docs_matrix[-train_ind, ]
 
-# Perplexity analysis for k = 2 to 20. Selected k=6.
+# Perplexity analysis for k = 2 to 12. Selected k=6.
 values <- c()
 for (i in c(2:12)) {
   lda_model <- LDA(train, k = i, method = "Gibbs", control = list(seed = 42))
@@ -458,23 +495,23 @@ beta_6_topics <- LDA_6_topics %>%
 ```
 The beta matrix shows the distribution of words within topics.  For Topics 1-3:  
 
-|topic   |term          |  beta|topic   |term        |  beta|topic   |term        |  beta|
-|:-------|:-------------|-----:|:-------|:-----------|-----:|:-------|:-----------|-----:|
-|Topic 1 |replace       | 0.070|Topic 2 |heat        | 0.044|Topic 3 |air         | 0.037|
-|Topic 1 |upgrade       | 0.053|Topic 2 |cool        | 0.038|Topic 3 |boiler      | 0.031|
-|Topic 1 |install       | 0.050|Topic 2 |control     | 0.037|Topic 3 |energy      | 0.028|
-|Topic 1 |add           | 0.034|Topic 2 |air         | 0.026|Topic 3 |pump        | 0.026|
-|Topic 1 |repair        | 0.028|Topic 2 |light       | 0.023|Topic 3 |heater      | 0.023|
-|Topic 1 |implement     | 0.025|Topic 2 |high        | 0.023|Topic 3 |water       | 0.020|
-|Topic 1 |insulate      | 0.024|Topic 2 |system      | 0.023|Topic 3 |heat        | 0.018|
-|Topic 1 |clean         | 0.021|Topic 2 |reduce      | 0.023|Topic 3 |low         | 0.018|
-|Topic 1 |sequence      | 0.020|Topic 2 |water       | 0.022|Topic 3 |flow        | 0.018|
-|Topic 1 |operate       | 0.020|Topic 2 |efficiency  | 0.019|Topic 3 |insulation  | 0.018|
-|Topic 1 |system        | 0.017|Topic 2 |fan         | 0.013|Topic 3 |control     | 0.015|
-|Topic 1 |calibration   | 0.016|Topic 2 |equipment   | 0.013|Topic 3 |furnace     | 0.013|
-|Topic 1 |protocol      | 0.016|Topic 2 |ventilation | 0.012|Topic 3 |room        | 0.013|
-|Topic 1 |pump          | 0.015|Topic 2 |chill       | 0.012|Topic 3 |conditioner | 0.012|
-|Topic 1 |documentation | 0.015|Topic 2 |pressure    | 0.012|Topic 3 |star        | 0.010|
+|topic   |term        |  beta|topic   |term     |  beta|topic   |term       |  beta|
+|:-------|:-----------|-----:|:-------|:--------|-----:|:-------|:----------|-----:|
+|Topic 1 |heat        | 0.041|Topic 2 |install  | 0.035|Topic 3 |add        | 0.031|
+|Topic 1 |cool        | 0.037|Topic 2 |system   | 0.026|Topic 3 |zone       | 0.018|
+|Topic 1 |control     | 0.036|Topic 2 |light    | 0.020|Topic 3 |set        | 0.018|
+|Topic 1 |air         | 0.032|Topic 2 |water    | 0.018|Topic 3 |build      | 0.015|
+|Topic 1 |system      | 0.031|Topic 2 |use      | 0.016|Topic 3 |cop        | 0.014|
+|Topic 1 |use         | 0.027|Topic 2 |replace  | 0.016|Topic 3 |eer        | 0.012|
+|Topic 1 |water       | 0.023|Topic 2 |reduce   | 0.015|Topic 3 |doas       | 0.011|
+|Topic 1 |high        | 0.022|Topic 2 |energy   | 0.011|Topic 3 |story      | 0.011|
+|Topic 1 |temperature | 0.021|Topic 2 |hour     | 0.009|Topic 3 |area       | 0.010|
+|Topic 1 |reduce      | 0.018|Topic 2 |consider | 0.009|Topic 3 |demand     | 0.010|
+|Topic 1 |efficiency  | 0.017|Topic 2 |lamp     | 0.009|Topic 3 |economizer | 0.010|
+|Topic 1 |light       | 0.016|Topic 2 |sensor   | 0.008|Topic 3 |hvac       | 0.010|
+|Topic 1 |chill       | 0.014|Topic 2 |build    | 0.008|Topic 3 |value      | 0.010|
+|Topic 1 |fan         | 0.014|Topic 2 |zone     | 0.008|Topic 3 |type       | 0.010|
+|Topic 1 |motor       | 0.012|Topic 2 |space    | 0.008|Topic 3 |efficiency | 0.009|
 
 The gamma matrix shows the distibution of topics across documents:
 

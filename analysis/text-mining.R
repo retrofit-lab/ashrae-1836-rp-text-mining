@@ -252,7 +252,7 @@ fan_EEMs <- lemma_all_docs[grepl("^Fan", lemma_all_docs$word, ignore.case = TRUE
 boiler_EEMs <- lemma_all_docs[grepl("^Boiler", lemma_all_docs$word, ignore.case = TRUE),]
 insulation_EEMs <- lemma_all_docs[grepl("^Insulation", lemma_all_docs$word, ignore.case = TRUE),]
 
-# Combine list to pass upSet()
+# Combine list to pass to upset()
 listInput <- list(Controls = controls_EEMs$eem_id, 
                   Pump = pump_EEMs$eem_id, 
                   Fan = fan_EEMs$eem_id, 

@@ -104,7 +104,7 @@ devtools::install_github("bnosac/RDRPOSTagger", build_vignettes = TRUE)
 library(RDRPOSTagger)
 ```
 #### Import list of EEMs
-Import the main list of EEMs in the [eem-list-main.csv](data/eem-list-main.csv) file.  The relative filepaths in this script follow the same directory structure as this Github repository, and it is recommended that you use this same structure.  If you are not using RStudio, you can use `setwd()` to set the working directory to the location of the EEM list.  
+Import the main list of EEMs in the [eem-list-main.csv](data/eem-list-main.csv) file.  The relative filepaths in this script follow the same directory structure as this Github repository, and it is recommended that you use this same structure.  You might have to use `setwd()` to set the working directory to the location of the R script.  
 
 ```
 # Import EEM list

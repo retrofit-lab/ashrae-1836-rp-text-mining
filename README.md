@@ -223,11 +223,9 @@ The first 10 lines of the EEM token list now read:
 
 #### Summary statistics
 
-The number of EEMs and duplicate EEMs per document are computed, and the tokenized data is used to determine the minimum, median, and maximum EEM word lengths for each document. 
+The number of EEMs and duplicate EEMs per document are then computed using the original (i.e., pre-cleaned) data. 
 
 ```
-# EEMs per doc stats
-
 # Total number of EEMs per doc
 eems_per_doc <- all_docs %>% 
   count(document) %>% 
@@ -260,9 +258,11 @@ eem_counts <- eems_per_doc %>%
 
 # Number of duplicate EEMs across all docs
 total_duplicates <- total_eems - total_unique_eems
+```
 
-# Words per EEM stats
+The tokenized data is then used to determine the minimum, median, and maximum EEM word lengths for each document.
 
+```
 # Words per EEM by doc
 words_per_eem <- token_all_docs %>% 
   group_by(document) %>% 
@@ -279,23 +279,9 @@ words_per_eem_corpus <- token_all_docs %>%
             median = round(median(n),1),
             average = round(mean(n),1),
             maximum = max(n))
-
-# Create summary stats table
-summary_stats <- eem_counts %>% 
-  left_join(words_per_eem, by = "document")
-
-# Include the totals row
-summary_stats_totals <- tribble(
-	~document, ~Total, ~Duplicates, ~minimum, ~median, ~average, ~maximum,
-    "TOTAL", total_eems, total_duplicates, words_per_eem_corpus$minimum, 
-	words_per_eem_corpus$median, words_per_eem_corpus$average, words_per_eem_corpus$maximum)
-
-# Bind total and per document stats
-summary_stats <- summary_stats %>% bind_rows(summary_stats_totals)
-
 ```
 
-Summary statistics for each document:  
+These are compiled into a table of summary statistics for each document:  
 
 |document | Total| Duplicates| minimum| median| average| maximum|
 |:--------|-----:|----------:|-------:|------:|-------:|-------:|
@@ -319,7 +305,7 @@ Summary statistics for each document:
 
 #### Top 20 words
 
-The 20 most frequently occurring words in the list of EEMs are determined using the lemmatized data, as well as their frequency of occurrence in each document.  
+The lemmatized data is used to find the 20 most frequently occurring words in the list of EEMs.  Their frequency of occurrence in each document is then determined.   
 
 ```
 # Find top 20 words overall

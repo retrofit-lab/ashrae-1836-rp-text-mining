@@ -1,4 +1,7 @@
 # What we talk about when we talk about EEMs: Using text mining and topic modeling to understand building energy efficiency measures (1836-RP)
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.6726629.svg)](https://doi.org/10.5281/zenodo.6726629)
+
 This repository contains the data and code for the paper "What we talk about when we talk about EEMs: Using text mining and topic modeling to understand building energy efficiency measures (1836-RP)."  This study was conducted as part of ASHRAE Research Project 1836, Developing a standardized categorization system for energy efficiency measures.  
 
 ## Contents  

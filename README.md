@@ -44,7 +44,7 @@ The file contains five variables:
     | 1651RP | Glazer, Jason. 2015. Development of Maximum Technically Achievable Energy Targets for Commercial Buildings: Ultra-Low Energy Use Building Set. ASHRAE Research Project 1651-RP Final Report. Arlington Heights, IL: Gard Analytics. |
     | ATT | Pacific Northwest National Laboratory. 2020. Audit Template, Release 2020.2.0. https://buildingenergyscore.energy.gov/. |
     | BCL | National Renewable Energy Laboratory. 2020. Building Component Library. https://bcl.nrel.gov/. |
-    | BEQ | ASHRAE. 2020. "Building EQ." https://buildingeq.ashrae.org/. |
+    | BEQ | ASHRAE. 2020. Building EQ. https://buildingeq.ashrae.org/. |
     | BSYNC | National Renewable Energy Laboratory. 2020. BuildingSync, Version 2.0. https://buildingsync.net/. |
     | CBES | Lawrence Berkeley National Laboratory. 2020. Commercial Building Energy Saver. http://cbes.lbl.gov/. |
     | DOTY | Doty, Steve. 2011. Commercial Energy Auditing Reference Handbook. 2nd ed. Boca Raton: Fairmont Press. |

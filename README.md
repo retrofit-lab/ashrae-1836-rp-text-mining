@@ -42,17 +42,17 @@ The file contains five variables:
     | Document | Citation |
     | ----------- | ----------- |
     | 1651RP | Glazer, Jason. 2015. Development of Maximum Technically Achievable Energy Targets for Commercial Buildings: Ultra-Low Energy Use Building Set. ASHRAE Research Project 1651-RP Final Report. Arlington Heights, IL: Gard Analytics. |
-    | ATT | Pacific Northwest National Laboratory. 2020. "Audit Template." https://buildingenergyscore.energy.gov/. |
-    | BCL | National Renewable Energy Laboratory. 2020. "Building Component Library." https://bcl.nrel.gov/. |
+    | ATT | Pacific Northwest National Laboratory. 2020. Audit Template, Release 2020.2.0. https://buildingenergyscore.energy.gov/. |
+    | BCL | National Renewable Energy Laboratory. 2020. Building Component Library. https://bcl.nrel.gov/. |
     | BEQ | ASHRAE. 2020. "Building EQ." https://buildingeq.ashrae.org/. |
-    | BSYNC | National Renewable Energy Laboratory. 2020. "BuildingSync." https://buildingsync.net/. |
-    | CBES | Lawrence Berkeley National Laboratory. 2020. "Commercial Building Energy Saver." http://cbes.lbl.gov/. |
+    | BSYNC | National Renewable Energy Laboratory. 2020. BuildingSync, Version 2.0. https://buildingsync.net/. |
+    | CBES | Lawrence Berkeley National Laboratory. 2020. Commercial Building Energy Saver. http://cbes.lbl.gov/. |
     | DOTY | Doty, Steve. 2011. Commercial Energy Auditing Reference Handbook. 2nd ed. Boca Raton: Fairmont Press. |
     | IEA11 | Lyberg, Mats Douglas, ed. 1987. Source Book for Energy Auditors. Vol. 1. Stockholm, Sweden: Swedish Council for Building Research. https://www.iea-ebc.org/projects/project?AnnexID=11. |
     | IEA46 | Zhivov, Alexander, and Cyrus Nasseri, eds. 2014. Energy Efficient Technologies and Measures for Building Renovation: Sourcebook. IEA ECBS Annex 46. https://www.iea-ebc.org/Data/publications/EBC_Annex_46_Technologies_and_Measures_Sourcebook.pdf. |
     | ILTRM | Illinois Energy Efficiency Stakeholder Advisory Group. 2019. 2020 Illinois Statewide Technical Reference Manual for Energy Efficiency Version 8.0. https://www.ilsag.info/technical-reference-manual/il_trm_version_8/. |
     | NYTRM | New York State Joint Utilities. 2019. New York Standard Approach for Estimating Energy Savings from Energy Efficiency Programs - Residential, Multi-Family, and Commercial/Industrial Measures Version 7. http://www3.dps.ny.gov/W/PSCWeb.nsf/All/72C23DECFF52920A85257F1100671BDD. |
-    | REMDB | National Renewable Energy Laboratory. "National Residential Energy Efficiency Measures Database, Version 3.1.0." https://remdb.nrel.gov/. |
+    | REMDB | National Renewable Energy Laboratory. National Residential Energy Efficiency Measures Database, Version 3.1.0. https://remdb.nrel.gov/. |
     | STD100 | ASHRAE. 2018. ASHRAE Standard 100-2018, Energy Efficiency in Existing Buildings. Atlanta: ASHRAE |
     | THUM | Thumann, Albert, ed. 1992. Energy Conservation in Existing Buildings Deskbook. Lilburn, GA: Fairmont Press. |
     | WSU | Washington State University Cooperative Extension and Energy Program. 2003. Washington State University Energy Program Energy Audit Workbook. WSUCEEP2003-043. http://www.energy.wsu.edu/PublicationsandTools.aspx. |

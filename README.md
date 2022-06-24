@@ -7,7 +7,7 @@ This repository contains the data and code for the paper "What we talk about whe
 - [Repository Structure](#repository-structure)  
 - [Objective](#objective)  
 - [Data](#data)  
-    - [1836-RP main list of EEMs](#1836-rp-main-list-of-eems)  
+    - [ASHRAE 1836-RP main list of EEMs](#ashrae-1836-rp-main-list-of-eems)  
 - [Analysis](#analysis)  
     - [Setup](#setup)  
     - [Data cleaning and pre-processing](#data-cleaning-and-pre-processing)  
@@ -31,7 +31,7 @@ Energy Efficiency Measures (EEMs) play a central role throughout the building en
 ## Data
 There is one dataset associated with this project. 
 
-### 1836-RP main list of EEMs
+### ASHRAE 1836-RP main list of EEMs
 The file [eem-list-main.csv](data/eem-list-main.csv) contains the complete list of 3,490 EEMs assembled and analyzed as part of 1836-RP.  This data file is used for the text mining analysis in [text-mining.R](analysis/text-mining.R).  The EEMs were collected from 16 different source documents during the 1836-RP literature review from September 2019 through July 2020.  An initial list of suggested sources was provided by the members of the 1836-RP Project Advisory Board, and additional documents were added through the authors’ literature review.  In order for a source to be included in the review, it needed to contain a list of EEMs.
 
 The file contains five variables:

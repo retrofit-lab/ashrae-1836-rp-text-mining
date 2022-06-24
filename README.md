@@ -17,7 +17,23 @@ This repository contains the data and code for the paper "What we talk about whe
     - [Results](#results)  
 
 ## Citation
-TEXT TK
+
+To cite the dataset:
+
+```
+@dataset{khanuja_apoorv_2022_6726629,
+  author       = {Khanuja, Apoorv and
+                  Webb, Amanda},
+  title        = {{ASHRAE 1836-RP main list of energy efficiency 
+                   measures}},
+  month        = jun,
+  year         = 2022,
+  publisher    = {Zenodo},
+  version      = {v1.0},
+  doi          = {10.5281/zenodo.6726629},
+  url          = {https://doi.org/10.5281/zenodo.6726629}
+}
+```
 
 ## Related Publications
 - Webb, Amanda, and Apoorv Khanuja. 2022. Developing a Standardized Categorization System for Energy Efficiency Measures. Final Report RP-1836. ASHRAE.

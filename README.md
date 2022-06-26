@@ -389,7 +389,7 @@ top_20_bigrams <- head(bigram_table_minus_NAs %>%
 bigram_doc_pairs <- bigram_table %>% 
   semi_join(top_20_bigrams, by = "bigram") %>% 
   count(document, bigram, sort = TRUE) %>% 
-  mutate(bigram = fct_reorder(bigram, n))
+  mutate(bigram = forcats::fct_reorder(bigram, n))
 ```
 A plot of the top 20 bigrams and their frquency of occurrence:
 
@@ -493,7 +493,7 @@ beta_6_topics <- LDA_6_topics %>%
   group_by(topic) %>% 
   top_n(15, beta) %>% 
   ungroup() %>% 
-  mutate(term = fct_reorder(term, beta),
+  mutate(term = forcats::fct_reorder(term, beta),
          topic = paste0("Topic ", topic),
          beta = round(beta, 3)) %>% 
   arrange(topic, desc(beta))

@@ -56,9 +56,9 @@ unique_stopwords <- removed_stopwords %>%
   unique() %>%
   arrange(word)
   
-# Display list of unique stop words getting removed in markdown format
+# Display list of unique stopwords getting removed in markdown format
 knitr::kable(unique_stopwords %>% 
-  dplyr::summarise(`stop words` = paste(word, collapse = ", "))) 
+  summarise(`stop words` = paste(word, collapse = ", "))) 
  
 ### Remove tokens that begin with a number as additional stop words
 
@@ -186,8 +186,8 @@ knitr::kable(word_doc_pairs %>% count(document))
 
 # Plot count of top 20 words by document
 ggplot(word_doc_pairs_w_totals, 
-       aes(x = fct_inorder(document), 
-           y = factor(word, levels = fct_inorder(top_20_words$word)), 
+       aes(x = forcats::fct_inorder(document), 
+           y = factor(word, levels = forcats::fct_inorder(top_20_words$word)), 
            label = n)) + 
   geom_raster(fill = "light grey", show.legend = FALSE) +
   geom_text(col = "black") +
@@ -220,7 +220,7 @@ top_20_bigrams <- head(bigram_table_minus_NAs %>%
 bigram_doc_pairs <- bigram_table %>% 
   semi_join(top_20_bigrams, by = "bigram") %>% 
   count(document, bigram, sort = TRUE) %>% 
-  mutate(bigram = fct_reorder(bigram, n))
+  mutate(bigram = forcats::fct_reorder(bigram, n))
 
 # Bind both data frames to include marginal totals in the figure
 bigram_doc_pairs_w_totals <- top_20_bigrams %>% 
@@ -234,8 +234,8 @@ knitr::kable(bigram_doc_pairs %>% count(document))
 
 # Plot count of top 20 bigrams by document
 ggplot(bigram_doc_pairs_w_totals, 
-       aes(x = fct_inorder(document), 
-           y = factor(bigram, levels = fct_inorder(top_20_bigrams$bigram)), 
+       aes(x = forcats::fct_inorder(document), 
+           y = factor(bigram, levels = forcats::fct_inorder(top_20_bigrams$bigram)), 
            label = n)) + 
   geom_raster(fill = "light grey", show.legend = FALSE) + 
   geom_text(col = "black") +
@@ -316,7 +316,7 @@ beta_6_topics <- LDA_6_topics %>%
   arrange(desc(beta)) %>% 
   slice_head(n = 15) %>% 
   ungroup() %>% 
-  mutate(term = fct_reorder(term, beta),
+  mutate(term = forcats::fct_reorder(term, beta),
          topic = paste0("Topic ", topic),
          beta = round(beta, 3)) %>% 
   arrange(topic, desc(beta))

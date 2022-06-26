@@ -18,7 +18,7 @@ This repository contains the data and code for the paper "What we talk about whe
 
 ## Citation
 
-To cite the dataset:
+To cite the ASHRAE 1836-RP main list of EEMs dataset:
 
 ```
 @dataset{khanuja_apoorv_2022_6726629,

@@ -2,7 +2,7 @@
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.6726629.svg)](https://doi.org/10.5281/zenodo.6726629)
 
-This repository contains the data and code for the paper "What we talk about when we talk about EEMs: Using text mining and topic modeling to understand building energy efficiency measures (1836-RP)."  This study was conducted as part of ASHRAE Research Project 1836, Developing a standardized categorization system for energy efficiency measures.  
+This repository contains the data and code for the paper ["What we talk about when we talk about EEMs: Using text mining and topic modeling to understand building energy efficiency measures (1836-RP)"](https://doi.org/10.1080/23744731.2022.2133329), published in *Science and Technology for the Built Environment*.  This study was conducted as part of ASHRAE Research Project 1836, Developing a standardized categorization system for energy efficiency measures.  
 
 ## Contents  
 - [Citation](#citation)  
@@ -36,7 +36,7 @@ To cite the ASHRAE 1836-RP main list of EEMs dataset:
 ```
 
 ## Related Publications
-- Webb, Amanda, and Apoorv Khanuja. 2022. Developing a Standardized Categorization System for Energy Efficiency Measures. Final Report RP-1836. ASHRAE.
+- Khanuja, Apoorv, and Amanda L. Webb. 2022. “What We Talk about When We Talk about EEMs: Using Text Mining and Topic Modeling to Understand Building Energy Efficiency Measures (1836-RP).” Science and Technology for the Built Environment 0 (0): 1–15. https://doi.org/10.1080/23744731.2022.2133329.
 
 ## Repository Structure
 The repository is divided into three directories:

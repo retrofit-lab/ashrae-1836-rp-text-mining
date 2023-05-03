@@ -17,26 +17,14 @@ This repository contains the data and code for the paper ["What we talk about wh
     - [Results](#results)  
 
 ## Citation
+To cite the paper:
+- Khanuja, Apoorv, and Amanda L. Webb. 2023. “What We Talk about When We Talk about EEMs: Using Text Mining and Topic Modeling to Understand Building Energy Efficiency Measures (1836-RP).” Science and Technology for the Built Environment 29 (1): 4–18. https://doi.org/10.1080/23744731.2022.2133329.
 
-To cite the ASHRAE 1836-RP main list of EEMs dataset:
-
-```
-@dataset{khanuja_apoorv_2022_6726629,
-  author       = {Khanuja, Apoorv and
-                  Webb, Amanda},
-  title        = {{ASHRAE 1836-RP main list of energy efficiency 
-                   measures}},
-  month        = jun,
-  year         = 2022,
-  publisher    = {Zenodo},
-  version      = {v1.0},
-  doi          = {10.5281/zenodo.6726629},
-  url          = {https://doi.org/10.5281/zenodo.6726629}
-}
-```
+To cite the dataset:
+- Khanuja, Apoorv, and Webb, Amanda. (2022). ASHRAE 1836-RP main list of energy efficiency measures (v1.0) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.6726629
 
 ## Related Publications
-- Khanuja, Apoorv, and Amanda L. Webb. 2022. “What We Talk about When We Talk about EEMs: Using Text Mining and Topic Modeling to Understand Building Energy Efficiency Measures (1836-RP).” Science and Technology for the Built Environment 0 (0): 1–15. https://doi.org/10.1080/23744731.2022.2133329.
+- [Webb, Amanda, and Apoorv Khanuja. 2023. “Developing a Standardized Categorization System for Energy Efficiency Measures.” Final Report RP-1836. ASHRAE.](https://www.techstreet.com/ashrae/standards/rp-1836-developing-a-standardized-categorization-system-for-energy-efficiency-measures?product_id=2255440) (ASHRAE members can access for free from the [ASHRAE Technology Portal](https://www.ashrae.org/technical-resources/technology-portal))
 
 ## Repository Structure
 The repository is divided into three directories:

@@ -89,7 +89,7 @@ library(textstem)
 Second, load the packages required for the text mining and topic modeling analysis. 
 
 ```
-# Load required packages for anlaysis: UpSet plot, topic modeling, cosine similarity
+# Load required packages for analysis: UpSet plot, topic modeling, cosine similarity
 library(UpSetR)
 library(topicmodels)
 library(reshape2)
@@ -315,7 +315,7 @@ These are compiled into a table of summary statistics for each document:
 The lemmatized data is used to find the 20 most frequently occurring words in the list of EEMs.  Their frequency of occurrence in each document is then determined.   
 
 ```
-# Find top 20 words overall
+# Find the top 20 words overall
 top_20_words <- head(lemma_all_docs %>% count(word, sort = TRUE), n = 20) %>% 
   arrange(n)
 
@@ -324,7 +324,7 @@ word_doc_pairs <- lemma_all_docs %>%
   semi_join(top_20_words, by = "word") %>% 
   count(document, word, sort = TRUE) 
 ```
-A plot of the top 20 words and their frquency of occurrence:
+A plot of the top 20 words and their frequency of occurrence:
 
 ![Frequency of top 20 words by document.](/results/top-20-words.png)
 
@@ -379,13 +379,13 @@ bigram_doc_pairs <- bigram_table %>%
   count(document, bigram, sort = TRUE) %>% 
   mutate(bigram = forcats::fct_reorder(bigram, n))
 ```
-A plot of the top 20 bigrams and their frquency of occurrence:
+A plot of the top 20 bigrams and their frequency of occurrence:
 
 ![Frequency of top 20 bigrams by document.](/results/top-20-bigrams.png)
 
 #### UpSet plot
 
-Five words are used to explore co-occurrence of terms in EEMs.  
+Five words are used to explore the co-occurrence of terms in EEMs.  
 
 ```
 # Create lists of EEMs containing top 5 words of interest
@@ -408,13 +408,13 @@ upset(fromList(listInput),
       text.scale = c(1.3, 1.7, 1.3, 1.6, 2, 1.75))
 ```
 
-The set intersectons are plotted as an UpSet plot: 
+The set intersections are plotted as an UpSet plot: 
 
 ![UpSet plot.](/results/upset-plot.png)
 
 #### Part of Speech (POS) tagging
 
-POS tagging requires the `RDRPOSTagger` package.  Each token in the orgininal (pre-cleaned) data is tagged with a part of speech.   
+POS tagging requires the `RDRPOSTagger` package.  Each token in the original (pre-cleaned) data is tagged with a part of speech.   
  
 ```
 # The following lines of code only work if RDRPOSTagger package was installed and loaded
@@ -506,14 +506,14 @@ The beta matrix shows the distribution of words within topics.  For Topics 1-3:
 |Topic 1 |fan         | 0.014|Topic 2 |zone     | 0.008|Topic 3 |type       | 0.010|
 |Topic 1 |motor       | 0.012|Topic 2 |space    | 0.008|Topic 3 |efficiency | 0.009|
 
-The gamma matrix shows the distibution of topics across documents:
+The gamma matrix shows the distribution of topics across documents:
 
 ![Topic model gamma distribution.](/results/topic-model-gamma.png)
 
 
 #### Cosine similarity
 
-Cosine similarity quantifies similarity between documents.  
+Cosine similarity quantifies the similarity between documents.  
 
 ```
 # Compute cosine similarities
